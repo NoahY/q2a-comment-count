@@ -25,7 +25,7 @@
 		height: 30px;
 		margin-right: 1.5em;
 		overflow: hidden;
-		padding: 2px 0 0 0;
+		padding: 2px 0 1px;
 		text-align: center;
 		width: 60px;
 	}
@@ -54,6 +54,13 @@
             
             $ok = null;
             
+            if (qa_clicked('ccount_reset')) {
+		foreach($_POST as $i => $v) {
+		    $def = $this->option_default($i);
+		    if($def !== null) qa_opt($i,$def);
+		}
+		$ok = qa_lang('admin/options_reset');
+            }
             if (qa_clicked('ccount_save')) {
 		qa_opt('ccount',(bool)qa_post_text('ccount'));
 		qa_opt('ccount_css',qa_post_text('ccount_css'));
@@ -85,7 +92,11 @@
                     array(
                         'label' => qa_lang('admin/save_options_button'),
                         'tags' => 'NAME="ccount_save"',
-                    )
+                    ),
+		    array(
+			'label' => qa_lang_html('admin/reset_options_button'),
+			'tags' => 'NAME="ccount_reset"',
+		    ),
                 ),
             );
         }
