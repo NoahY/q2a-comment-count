@@ -23,7 +23,6 @@
 						$post['raw']['postid'],$post['raw']['postid']
 					)
 				);
-				error_log($comments);
 				$this->output_split(array('prefix'=>'','data'=>$comments,'suffix'=>' comments'), 'qa-c-count', 'SPAN', 'SPAN');
 				
 				$this->output('</div>');
