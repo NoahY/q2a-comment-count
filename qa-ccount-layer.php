@@ -23,8 +23,8 @@
 						$post['raw']['postid'],$post['raw']['postid']
 					)
 				);
-				$this->output_split(array('prefix'=>'','data'=>$comments,'suffix'=>' comments'), 'qa-c-count', 'SPAN', 'SPAN');
-				
+				$this->output_split(array('prefix'=>'','data'=>$comments,'suffix'=>' comment' . ($comments === '1' ? '' : 's')), 'qa-c-count', 'SPAN', 'SPAN');
+
 				$this->output('</div>');
 			}
 			else 
